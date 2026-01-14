@@ -46,7 +46,7 @@ const getButtonClasses = (
     ghost: "bg-transparent",
     outline: "bg-transparent border border-emerald-300 rounded-lg",
     link: "bg-transparent h-auto",
-    disabled: "bg-[#F2F4F7] rounded-lg",
+    disabled: "bg-gray-300 rounded-lg",
     social: "bg-white rounded-full h-[48px] w-[56px] border border-gray-200",
   };
 

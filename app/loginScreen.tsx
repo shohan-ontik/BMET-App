@@ -6,9 +6,11 @@ import ThemedButton from "@/components/ui/basics/themed-button";
 import { ThemedText } from "@/components/ui/basics/themed-text";
 import { FormInput } from "@/components/ui/form/form-input";
 import PhoneInputField from "@/components/ui/form/phone-input-field";
+import { useSession } from "@/hooks/useSession";
 import { loginTr, tLogin } from "@/i18n/loginLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Redirect, router } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
@@ -17,6 +19,9 @@ import { useSelector } from "react-redux";
 export default function LoginScreen() {
   const appLanguage = useSelector(language);
   loginTr.locale = appLanguage;
+  const { signIn, session } = useSession();
+
+  console.log({ session });
 
   const {
     control,
@@ -30,6 +35,12 @@ export default function LoginScreen() {
 
   function onSubmit(data: LoginSchemaType) {
     console.log(data);
+    signIn("exampleToken");
+    router.push("/(tabs)");
+  }
+
+  if (session) {
+    return <Redirect href="/(tabs)" />;
   }
 
   return (
@@ -59,7 +70,7 @@ export default function LoginScreen() {
           placeholder="Password"
           errors={errors}
         />
-        <ThemedButton onPress={handleSubmit(onSubmit)}>
+        <ThemedButton onPress={handleSubmit(onSubmit)} disabled={!isValid}>
           {tLogin("loginText")}
         </ThemedButton>
       </View>

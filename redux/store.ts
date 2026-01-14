@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
+import { useDispatch } from "react-redux";
 import { persistReducer, persistStore } from "redux-persist";
 import { baseApi } from "./baseApi";
 import rootReducer from "./rootreducer";
@@ -8,7 +9,7 @@ import rootReducer from "./rootreducer";
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  whitelist: [],
+  whitelist: ["session"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -29,3 +30,4 @@ setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;

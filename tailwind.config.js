@@ -20,6 +20,7 @@ module.exports = {
         primary: "#101828",
         "primary-on-brand": "#FFFFFF",
         secondary: "#344054",
+      
       },
       fontSize: {
         overline: ["10px", { lineHeight: "150%" }],
