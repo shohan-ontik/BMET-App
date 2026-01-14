@@ -2,17 +2,22 @@ import {
   loginSchema,
   LoginSchemaType,
 } from "@/components/screens/login/loginSchema";
+import ThemedButton from "@/components/ui/basics/themed-button";
 import { ThemedText } from "@/components/ui/basics/themed-text";
 import { FormInput } from "@/components/ui/form/form-input";
 import PhoneInputField from "@/components/ui/form/phone-input-field";
 import { loginTr, tLogin } from "@/i18n/loginLocal";
+import { language } from "@/redux/features/ui/uiSlice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
+import { useSelector } from "react-redux";
 
 export default function LoginScreen() {
-  loginTr.locale = "bn";
+  const appLanguage = useSelector(language);
+  loginTr.locale = appLanguage;
+
   const {
     control,
     handleSubmit,
@@ -52,12 +57,12 @@ export default function LoginScreen() {
           name={"password"}
           secureTextEntry
           placeholder="Password"
+          errors={errors}
         />
+        <ThemedButton onPress={handleSubmit(onSubmit)}>
+          {tLogin("loginText")}
+        </ThemedButton>
       </View>
-
-      <TouchableOpacity onPress={handleSubmit(onSubmit)}>
-        <ThemedText>Click</ThemedText>
-      </TouchableOpacity>
     </View>
   );
 }

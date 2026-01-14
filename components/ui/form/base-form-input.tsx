@@ -1,3 +1,4 @@
+import { loginTr } from "@/i18n/loginLocal";
 import Feather from "@expo/vector-icons/Feather";
 import React, { JSX, useState } from "react";
 import { Controller, FieldValues } from "react-hook-form";
@@ -63,7 +64,7 @@ export const BaseFormInput = <T extends FieldValues>({
       : "";
 
   return (
-    <View className={twMerge("w-full mb-4 relative", className)}>
+    <View className={twMerge("w-full relative", className)}>
       {label && <Text className="text-secondary mb-1">{label}</Text>}
 
       <View>
@@ -116,7 +117,9 @@ export const BaseFormInput = <T extends FieldValues>({
                   </Text>
                 )}
 
-                {hasError && <ErrorMessage message={errorMessage} />}
+                {hasError && (
+                  <ErrorMessage message={loginTr.t(errorMessage as string)} />
+                )}
               </>
             );
           }}
