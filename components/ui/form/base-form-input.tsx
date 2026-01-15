@@ -65,7 +65,11 @@ export const BaseFormInput = <T extends FieldValues>({
 
   return (
     <View className={twMerge("w-full relative", className)}>
-      {label && <Text className="text-secondary mb-1">{label}</Text>}
+      {label && (
+        <Text className="text-secondary mb-1 font-NotoSansRegular">
+          {label}
+        </Text>
+      )}
 
       <View>
         <Controller
@@ -112,7 +116,7 @@ export const BaseFormInput = <T extends FieldValues>({
                 })}
 
                 {multiline && (
-                  <Text className="text-secondary text-sm mt-1">
+                  <Text className="text-secondary text-body2 mt-1 font-NotoSansRegular">
                     {value ? value.length : 0}/{maxChar} Characters
                   </Text>
                 )}

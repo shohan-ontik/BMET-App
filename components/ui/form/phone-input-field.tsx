@@ -79,6 +79,6 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
     color: "#344054",
     height: 44,
-    marginTop: Platform.OS === "android" ? 26 : 25,
+    marginTop: Platform.OS === "android" ? 22 : 25,
   },
 });

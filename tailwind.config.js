@@ -16,11 +16,16 @@ module.exports = {
           link: "#0a7ea4",
         },
       },
-        textColor: {
+      textColor: {
         primary: "#101828",
         "primary-on-brand": "#FFFFFF",
         secondary: "#344054",
-      
+      },
+      fontFamily: {
+        NotoSansRegular: ["NotoSansRegular"],
+        NotoSansMedium: ["NotoSansMedium"],
+        NotoSansSemiBold: ["NotoSansSemiBold"],
+        NotoSansBold: ["NotoSansBold"],
       },
       fontSize: {
         overline: ["10px", { lineHeight: "150%" }],

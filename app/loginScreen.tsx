@@ -21,8 +21,6 @@ export default function LoginScreen() {
   loginTr.locale = appLanguage;
   const { signIn, session } = useSession();
 
-  console.log({ session });
-
   const {
     control,
     handleSubmit,
@@ -34,7 +32,6 @@ export default function LoginScreen() {
   });
 
   function onSubmit(data: LoginSchemaType) {
-    console.log(data);
     signIn("exampleToken");
     router.push("/(tabs)");
   }

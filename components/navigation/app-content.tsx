@@ -11,7 +11,6 @@ export default function AppContent() {
     <View className="flex-1">
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
-
         <Stack.Screen name="loginScreen" />
         <Stack.Protected guard={!!session}>
           <Stack.Screen name="(tabs)" />

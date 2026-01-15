@@ -14,11 +14,11 @@ export function ThemedText({
     <Text
       className={cn(
         "text-main-text",
-        type === "default" && "text-base leading-6",
-        type === "defaultSemiBold" && "text-base leading-6 font-semibold",
-        type === "title" && "text-4xl font-bold",
-        type === "subtitle" && "text-xl font-bold",
-        type === "link" && "text-base leading-[30px] text-main-link",
+        type === "default" && "text-[16px] font-NotoSansRegular",
+        type === "defaultSemiBold" && "text-[16px] font-NotoSansSemiBold",
+        type === "title" && "text-[32px] font-NotoSansBold",
+        type === "subtitle" && "text-[20px] font-NotoSansSemiBold",
+        type === "link" && "text-[16px] text-main-link font-NotoSansRegular",
         className
       )}
       {...rest}

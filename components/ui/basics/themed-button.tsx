@@ -66,7 +66,7 @@ const getTextClasses = (
   size: ButtonSize,
   disabled: boolean
 ) => {
-  const baseClasses = "text-center font-semibold";
+  const baseClasses = "text-center";
 
   // If disabled is true, override the variant for text color
   const effectiveVariant = disabled ? "disabled" : variant;
@@ -82,9 +82,9 @@ const getTextClasses = (
   };
 
   const sizeClasses = {
-    small: "text-sm",
-    medium: "text-base",
-    large: "text-lg",
+    small: "text-body2",
+    medium: "text-body1",
+    large: "text-subheading",
   };
 
   return `${baseClasses} ${variantClasses[effectiveVariant]} ${sizeClasses[size]}`;
@@ -113,7 +113,12 @@ const ThemedButton: React.FC<ThemedButtonProps> = ({
       {loading ? (
         <ActivityIndicator color={variant === "primary" ? "white" : "black"} />
       ) : typeof children === "string" ? (
-        <Text className={textClasses}>{children}</Text>
+        <Text
+          className={textClasses}
+          style={{ fontFamily: "NotoSansSemiBold" }}
+        >
+          {children}
+        </Text>
       ) : (
         children
       )}
