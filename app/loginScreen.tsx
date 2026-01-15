@@ -44,7 +44,7 @@ export default function LoginScreen() {
     <View className="flex-1 items-center justify-center p-4">
       <ThemedText type="title">{tLogin("welcome")}</ThemedText>
       <ThemedText>{tLogin("login")}</ThemedText>
-      <View className="w-full gap-3 mt-6">
+      <View className="w-full gap-3 mt-10">
         <Controller
           control={control}
           rules={{
@@ -56,20 +56,23 @@ export default function LoginScreen() {
               onChange={onChange}
               error={!!errors?.["phone"]}
               onBlur={onBlur}
+              placeholder={tLogin("phoneNumber")}
             />
           )}
           name="phone"
         />
         <FormInput
           control={control}
-          name={"password"}
+          name={"pin"}
+          keyboardType={"numeric"}
           secureTextEntry
-          placeholder="Password"
+          placeholder={tLogin("givePin")}
           errors={errors}
         />
         <ThemedButton onPress={handleSubmit(onSubmit)} disabled={!isValid}>
           {tLogin("loginText")}
         </ThemedButton>
+        <ThemedText className="text-center">{tLogin("contact")}</ThemedText>
       </View>
     </View>
   );

@@ -7,6 +7,7 @@ interface PhoneInputFieldProps {
   onChange: () => void;
   error?: boolean;
   onBlur?: () => void;
+  placeholder?: string;
 }
 
 export default function PhoneInputField({
@@ -14,6 +15,7 @@ export default function PhoneInputField({
   onChange,
   error,
   onBlur,
+  placeholder,
 }: Readonly<PhoneInputFieldProps>) {
   const phoneInput = useRef<PhoneInput>(null);
   const defaultCode = "BD";
@@ -23,7 +25,7 @@ export default function PhoneInputField({
     <PhoneInput
       countryPickerProps={{ renderFlagButton: false }}
       ref={phoneInput}
-      placeholder={""}
+      placeholder={placeholder ?? ""}
       defaultCode={defaultCode as any}
       value={value}
       layout="first"
