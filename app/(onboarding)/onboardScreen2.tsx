@@ -4,7 +4,7 @@ import { language } from "@/redux/features/ui/uiSlice";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
-import { TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { useSelector } from "react-redux";
 
 export default function OnboardingScreen2() {
@@ -14,16 +14,17 @@ export default function OnboardingScreen2() {
   return (
     <View className="flex-1 bg-white">
       <View className="w-full h-[60%]">
-        {/* Dark overlay */}
-        <View className="absolute inset-0 bg-blue-900/40" />
+        <Image
+          source={require("@/assets/images/onboarding/onboarding2.png")}
+          className="w-full h-full"
+          resizeMode="cover"
+        />
 
-        {/* Gradient fade */}
         <LinearGradient
-          colors={["#2563eb", "white"]}
-          className="absolute bottom-0 w-full h-full"
+          colors={["#2563eb95", "#2563eb60", "white"]}
+          style={{ position: "absolute", height: "100%", width: "100%" }}
         />
       </View>
-
       {/* Bottom content */}
       <View className="absolute bottom-0 px-6 pb-16 pt-6 bg-white">
         <View className="w-10 h-10 bg-blue-700  rounded-lg mb-4 items-center justify-center">

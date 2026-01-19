@@ -15,16 +15,14 @@ export default function OnboardingScreen2() {
     <View className="flex-1 bg-white">
       <View className="w-full h-[60%]">
         <Image
-          source={require("@/assets/images/onboarding/onboarding2.png")}
+          source={require("@/assets/images/onboarding/onboarding3.png")}
           className="w-full h-full"
           resizeMode="cover"
         />
 
-        {/* Gradient fade */}
         <LinearGradient
           colors={["#0d948895", "#0d948860", "white"]}
-          style={{ position: "absolute", height: "100%" }}
-          className="absolute bottom-0 w-full h-64"
+          style={{ position: "absolute", height: "100%", width: "100%" }}
         />
       </View>
 

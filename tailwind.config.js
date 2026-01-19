@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         main: {
           text: "#11181C",
-          background: "#fff",
+          background: "#f7f8fa",
           tint: "#0a7ea4",
           icon: "#687076",
           tabIconDefault: "#687076",

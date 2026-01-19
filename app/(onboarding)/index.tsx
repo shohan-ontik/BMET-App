@@ -20,11 +20,9 @@ export default function OnboardingScreen() {
           resizeMode="cover"
         />
 
-        {/* Gradient fade */}
         <LinearGradient
           colors={["#2563eb95", "#2563eb60", "white"]}
-          style={{ position: "absolute", height: "100%" }}
-          className="absolute bottom-0 w-full h-64"
+          style={{ position: "absolute", height: "100%", width: "100%" }}
         />
       </View>
 

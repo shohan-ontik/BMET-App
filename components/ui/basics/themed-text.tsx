@@ -2,7 +2,13 @@ import { cn } from "@/utils/cn";
 import { Text, type TextProps } from "react-native";
 
 export type ThemedTextProps = TextProps & {
-  type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
+  type?:
+    | "default"
+    | "medium"
+    | "title"
+    | "defaultSemiBold"
+    | "subtitle"
+    | "link";
 };
 
 export function ThemedText({
@@ -15,6 +21,7 @@ export function ThemedText({
       className={cn(
         "text-main-text",
         type === "default" && "text-[16px] font-NotoSansRegular",
+        type === "medium" && "text-[16px] font-NotoSansMedium",
         type === "defaultSemiBold" && "text-[16px] font-NotoSansSemiBold",
         type === "title" && "text-[32px] font-NotoSansBold",
         type === "subtitle" && "text-[20px] font-NotoSansSemiBold",
