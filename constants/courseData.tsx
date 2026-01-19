@@ -1,0 +1,56 @@
+export const languagesList = [
+  {
+    id: 1,
+    title: "ইংরেজি",
+    totalCourses: 2,
+    courses: [
+      {
+        id: "1",
+        category: "ইংরেজি",
+        title: "সাধারণ ইংরেজি",
+        description: "দৈনন্দিন যোগাযোগের জন্য বেসিক ইংরেজি।",
+        completedLessons: 7,
+        totalLessons: 20,
+        progressPercentage: 35,
+        isLocked: false,
+      },
+      {
+        id: "2",
+        category: "ইংরেজি",
+        title: "নির্মাণকাজের জন্য ইংরেজি",
+        description: "সাইট নিরাপত্তা, যন্ত্রপাতি ও নির্দেশনা।",
+        completedLessons: 0,
+        totalLessons: 15,
+        progressPercentage: 0,
+        isLocked: true,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "আরবি",
+    totalCourses: 2,
+    courses: [
+      {
+        id: "1",
+        category: "আরবি",
+        title: "সাধারণ আরবি",
+        description: "দৈনন্দিন যোগাযোগের জন্য বেসিক আরবি।",
+        completedLessons: 7,
+        totalLessons: 20,
+        progressPercentage: 35,
+        isLocked: true,
+      },
+      {
+        id: "2",
+        category: "আরবি",
+        title: "নির্মাণকাজের জন্য আরবি",
+        description: "সাইট নিরাপত্তা, যন্ত্রপাতি ও নির্দেশনা।",
+        completedLessons: 0,
+        totalLessons: 15,
+        progressPercentage: 0,
+        isLocked: true,
+      },
+    ],
+  },
+];

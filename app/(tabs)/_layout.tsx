@@ -24,7 +24,7 @@ export default function TabLayout() {
         options={{
           title: tNavigation("home"),
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <IconSymbol size={24} name="home" color={color} />
           ),
         }}
       />
@@ -33,7 +33,7 @@ export default function TabLayout() {
         options={{
           title: tNavigation("courses"),
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="book" color={color} />
+            <IconSymbol size={24} name="book" color={color} />
           ),
         }}
       />
@@ -42,7 +42,7 @@ export default function TabLayout() {
         options={{
           title: tNavigation("profile"),
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="person" color={color} />
+            <IconSymbol size={24} name="person" color={color} />
           ),
         }}
       />

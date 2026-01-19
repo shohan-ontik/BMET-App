@@ -26,7 +26,7 @@ export function ThemedText({
         type === "title" && "text-[32px] font-NotoSansBold",
         type === "subtitle" && "text-[20px] font-NotoSansSemiBold",
         type === "link" && "text-[16px] text-main-link font-NotoSansRegular",
-        className
+        className,
       )}
       {...rest}
     />

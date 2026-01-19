@@ -15,6 +15,9 @@ export default function AppContent() {
         <Stack.Protected guard={!!session}>
           <Stack.Screen name="(tabs)" />
         </Stack.Protected>
+        <Stack.Protected guard={!!session}>
+          <Stack.Screen name="(course-details)" />
+        </Stack.Protected>
       </Stack>
       <StatusBar style="auto" />
     </View>

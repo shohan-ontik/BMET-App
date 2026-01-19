@@ -1,6 +1,7 @@
 import { ThemedText } from "@/components/ui/basics/themed-text";
 import { onboardingTr, tOnboarding } from "@/i18n/onboarding";
 import { language } from "@/redux/features/ui/uiSlice";
+import FeatherIcons from "@expo/vector-icons/Feather";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -29,7 +30,7 @@ export default function OnboardingScreen2() {
       {/* Bottom content */}
       <View className="absolute bottom-0 px-6 pb-16 pt-6 bg-white">
         <View className="w-10 h-10 bg-teal-500 rounded-lg mb-4 items-center justify-center">
-          <MaterialIcons size={24} name="translate" color={"#fff"} />
+          <MaterialIcons size={22} name="translate" color={"#fff"} />
         </View>
 
         <ThemedText type="title" className="text-[28px]">
@@ -54,7 +55,7 @@ export default function OnboardingScreen2() {
               {" "}
               {tOnboarding("getStarted")}
             </ThemedText>
-            <MaterialIcons size={24} name="chevron-right" color={"#fff"} />
+            <FeatherIcons size={22} name="chevron-right" color={"#fff"} />
           </TouchableOpacity>
         </View>
       </View>
