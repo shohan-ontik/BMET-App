@@ -39,7 +39,7 @@ homeTr.enableFallback = true;
 homeTr.defaultLocale = "bn";
 
 export const tHome = <K extends keyof HomeTranslation>(
-  key: K
+  key: K,
 ): HomeTranslation[K] extends string ? string : any => {
   return homeTr.t(key as string);
 };

@@ -52,10 +52,7 @@ export default function HomeScreen() {
             রহিম উদ্দিন
           </ThemedText>
         </View>
-
-        {/* Stats cards */}
         <LearningStats />
-        {/* My Courses */}
         <View className="py-4 mt-4">
           <ThemedText type="defaultSemiBold">{tHome("myCourses")}</ThemedText>
           <View className="mt-3 gap-3">
