@@ -54,3 +54,58 @@ export const languagesList = [
     ],
   },
 ];
+
+export const chapterListData = [
+  {
+    id: 1,
+    chapter: 1,
+    title: "শুভেচ্ছা ও পরিচিতি",
+    lessonList: [
+      {
+        id: 1,
+        title: "হ্যালো বলা",
+        duration: "১৫:০০",
+        type: "lesson",
+        isLocked: false,
+      },
+      {
+        id: 2,
+        title: "নিজেকে পরিচয় করানো",
+        duration: "২০:০০",
+        type: "lesson",
+        isLocked: true,
+      },
+      {
+        id: 3,
+        type: "quiz",
+        isLocked: true,
+      },
+    ],
+  },
+  {
+    id: 2,
+    chapter: 2,
+    title: "বিমানবন্দরে",
+    lessonList: [
+      {
+        id: 1,
+        title: "চেক-ইন কাউন্টার",
+        duration: "১৫:০০",
+        type: "lesson",
+        isLocked: true,
+      },
+      {
+        id: 2,
+        title: "নিরাপত্তা যাচাই",
+        duration: "২০:০০",
+        type: "lesson",
+        isLocked: true,
+      },
+      {
+        id: 3,
+        type: "quiz",
+        isLocked: true,
+      },
+    ],
+  },
+];

@@ -5,6 +5,9 @@ export type CourseTranslation = {
   catalog: string;
   exploreLangs: string;
   course: string;
+  back: string;
+  progress: string;
+  chapter: string;
 };
 
 const courseEn: CourseTranslation = {
@@ -12,6 +15,9 @@ const courseEn: CourseTranslation = {
   catalog: "Course Catalog",
   exploreLangs: "Explore available language tracks",
   course: " courses",
+  back: "Back",
+  progress: "Progress",
+  chapter: "Chapter",
 };
 
 const courseBn: CourseTranslation = {
@@ -19,6 +25,9 @@ const courseBn: CourseTranslation = {
   catalog: "কোর্স তালিকা",
   exploreLangs: "ভাষা শেখার কোর্সগুলো ঘুরে দেখুন",
   course: "টি কোর্স",
+  back: "আগের পৃষ্ঠা",
+  progress: "অগ্রগতি",
+  chapter: "অধ্যায়",
 };
 
 export const courseTr = new I18n({
