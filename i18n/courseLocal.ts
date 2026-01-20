@@ -8,6 +8,10 @@ export type CourseTranslation = {
   back: string;
   progress: string;
   chapter: string;
+  vocaPractice: string;
+  startLesson1: string;
+  startLesson2: string;
+  startFlashcard: string;
 };
 
 const courseEn: CourseTranslation = {
@@ -18,6 +22,10 @@ const courseEn: CourseTranslation = {
   back: "Back",
   progress: "Progress",
   chapter: "Chapter",
+  vocaPractice: "Vocabulary Practice",
+  startLesson1: "Master",
+  startLesson2: " new words from this lesson.",
+  startFlashcard: "Start Flashcards",
 };
 
 const courseBn: CourseTranslation = {
@@ -28,6 +36,10 @@ const courseBn: CourseTranslation = {
   back: "আগের পৃষ্ঠা",
   progress: "অগ্রগতি",
   chapter: "অধ্যায়",
+  vocaPractice: "শব্দভাণ্ডার অনুশীলন",
+  startLesson1: "এই লেসন থেকে",
+  startLesson2: "টি নতুন শব্দ আয়ত্ত করুন।",
+  startFlashcard: "ফ্ল্যাশকার্ড শুরু করুন",
 };
 
 export const courseTr = new I18n({

@@ -13,7 +13,6 @@ export default function CourseDetails() {
   const appLanguage = useSelector(language);
   courseTr.locale = appLanguage;
 
-  console.log({ id });
   return (
     <ThemedView className="flex-1">
       <CourseDetailsTop />

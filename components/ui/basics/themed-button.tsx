@@ -1,3 +1,4 @@
+import { cn } from "@/utils/cn";
 import React from "react";
 import {
   ActivityIndicator,
@@ -32,7 +33,7 @@ const getButtonClasses = (
   variant: ButtonVariant,
   size: ButtonSize,
   disabled: boolean,
-  className?: string
+  className?: string,
 ) => {
   const baseClasses = "justify-center items-center rounded-lg w-full";
 
@@ -64,7 +65,7 @@ const getButtonClasses = (
 const getTextClasses = (
   variant: ButtonVariant,
   size: ButtonSize,
-  disabled: boolean
+  disabled: boolean,
 ) => {
   const baseClasses = "text-center";
 
@@ -103,9 +104,11 @@ const ThemedButton: React.FC<ThemedButtonProps> = ({
   const buttonClasses = getButtonClasses(variant, size, disabled, className);
   const textClasses = getTextClasses(variant, size, disabled);
 
+  console.log(buttonClasses);
+
   return (
     <TouchableOpacity
-      className={buttonClasses}
+      className={cn(buttonClasses, className)}
       onPress={onPress}
       disabled={disabled || loading}
       style={style}
