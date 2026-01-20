@@ -130,7 +130,7 @@ export default function ProfileScreen() {
             <ThemedButton
               variant="primary"
               onPress={handleSubmit(onSubmit)}
-              className="mb-3 w-full justify-center bg-emerald-600"
+              className="mb-3 w-full justify-center bg-indigo-400"
             >
               <ThemedText className="text-white font-NotoSansMedium">
                 {tProfile("updatePin")}
