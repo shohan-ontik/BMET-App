@@ -1,17 +1,11 @@
 import { useSession } from "@/hooks/useSession";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
 import { View } from "react-native";
 import "react-native-reanimated";
-import { setupTrackPlayer } from "../music-player/setup/trackPlayerSetup";
 
 export default function AppContent() {
   const { session } = useSession();
-
-  useEffect(() => {
-    setupTrackPlayer();
-  }, []);
 
   return (
     <View className="flex-1">
