@@ -3,48 +3,61 @@ import StartFlashCard from "@/components/screens/courses/lesson-player/StartFlas
 import { ThemedView } from "@/components/ui/basics/themed-view";
 import CommonSheet from "@/components/ui/bottom-sheet/CommonSheet";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import { Audio, AVPlaybackStatus } from "expo-av";
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
-import TrackPlayer, {
-  State,
-  usePlaybackState,
-  useProgress,
-} from "react-native-track-player";
 
 export default function LessonPlayer() {
   const { id } = useLocalSearchParams();
   const bottomsheetRef = useRef<BottomSheetModal>(null);
+  const soundRef = useRef<Audio.Sound | null>(null);
+
   const [isSheetOpen, setIsSheetOpen] = useState(true);
-  const playbackState = usePlaybackState();
-  const { position, duration } = useProgress(250);
-
-  const isPlaying = playbackState.state === State.Playing;
-
-  const playPauseTrack = async () => {
-    const currentTrack = await TrackPlayer.getActiveTrack();
-
-    if (currentTrack) {
-      if (isPlaying) {
-        await TrackPlayer.pause();
-      } else {
-        await TrackPlayer.play();
-      }
-    } else {
-      await TrackPlayer.add({
-        id: "1",
-        url: "https://s3.amazonaws.com/kargopolov/kukushka.mp3",
-        title: "Avaritia",
-        artist: "deadmau5",
-        artwork: "http://example.com/cover.png",
-      });
-
-      await TrackPlayer.play();
-    }
-  };
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [position, setPosition] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     bottomsheetRef.current?.present();
+
+    return () => {
+      // Cleanup audio when leaving screen
+      soundRef.current?.unloadAsync();
+    };
   }, []);
+
+  const onPlaybackStatusUpdate = (status: AVPlaybackStatus) => {
+    if (!status.isLoaded) return;
+
+    setIsPlaying(status.isPlaying);
+    setPosition(status.positionMillis / 1000);
+    setDuration((status.durationMillis ?? 0) / 1000);
+  };
+
+  const playPauseTrack = async () => {
+    if (soundRef.current) {
+      if (isPlaying) {
+        await soundRef.current.pauseAsync();
+      } else {
+        await soundRef.current.playAsync();
+      }
+      return;
+    }
+
+    // Create sound for the first time
+    const { sound } = await Audio.Sound.createAsync(
+      {
+        uri: "https://s3.amazonaws.com/kargopolov/kukushka.mp3",
+      },
+      {
+        shouldPlay: true,
+        progressUpdateIntervalMillis: 250,
+      },
+      onPlaybackStatusUpdate,
+    );
+
+    soundRef.current = sound;
+  };
 
   return (
     <ThemedView>
