@@ -68,6 +68,7 @@ export default function LoginScreen() {
           secureTextEntry
           placeholder={tLogin("givePin")}
           errors={errors}
+          errorMessage={loginTr.t(errors["pin"]?.message as string)}
         />
         <ThemedButton onPress={handleSubmit(onSubmit)} disabled={!isValid}>
           {tLogin("loginText")}

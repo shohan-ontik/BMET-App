@@ -1,4 +1,3 @@
-import { loginTr } from "@/i18n/loginLocal";
 import Feather from "@expo/vector-icons/Feather";
 import React, { JSX, useState } from "react";
 import { Controller, FieldValues } from "react-hook-form";
@@ -26,6 +25,7 @@ export interface BaseFormInputProps<T extends FieldValues> {
   transformOnBlur?: (value: string) => string;
   renderInput: (inputProps: any) => JSX.Element;
   isLoading?: boolean;
+  errorMessage?: string;
 }
 
 export const BaseFormInput = <T extends FieldValues>({
@@ -47,6 +47,7 @@ export const BaseFormInput = <T extends FieldValues>({
   transformOnBlur,
   renderInput,
   isLoading = false,
+  errorMessage,
 }: BaseFormInputProps<T>) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -57,11 +58,6 @@ export const BaseFormInput = <T extends FieldValues>({
     if (value) return "text-primary";
     return "text-gray-500";
   };
-
-  const errorMessage =
-    errors && typeof errors[name]?.message === "string"
-      ? errors[name]?.message
-      : "";
 
   return (
     <View className={twMerge("w-full relative", className)}>
@@ -111,7 +107,7 @@ export const BaseFormInput = <T extends FieldValues>({
                     hasError ? "border-red-500 pr-12" : "",
                     editable ? "" : "bg-gray-50",
                     secureTextEntry ? "pr-12" : "",
-                    inputClassName
+                    inputClassName,
                   ),
                 })}
 
@@ -121,9 +117,7 @@ export const BaseFormInput = <T extends FieldValues>({
                   </Text>
                 )}
 
-                {hasError && (
-                  <ErrorMessage message={loginTr.t(errorMessage as string)} />
-                )}
+                {hasError && <ErrorMessage message={errorMessage ?? ""} />}
               </>
             );
           }}
