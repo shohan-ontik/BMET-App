@@ -11,8 +11,9 @@ import { profileTr, tProfile } from "@/i18n/profileLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import Feather from "@expo/vector-icons/Feather";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { router } from "expo-router";
 import { useForm } from "react-hook-form";
-import { Image, ScrollView, View } from "react-native";
+import { Image, ScrollView, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
 
@@ -75,11 +76,21 @@ export default function ProfileScreen() {
             </ThemedText>
 
             {/* Student Badge */}
-            <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
-              <ThemedText className="text-indigo-700 text-[12px] font-NotoSansMedium">
-                {tProfile("student")}
-              </ThemedText>
-            </View>
+            <TouchableOpacity
+              onPress={() =>
+                router.push({
+                  pathname: "/(course-details)/quiz-result",
+                  params: { score: "3", total: "3" },
+                })
+              }
+              activeOpacity={0.7}
+            >
+              <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
+                <ThemedText className="text-indigo-700 text-[12px] font-NotoSansMedium">
+                  {tProfile("student")}
+                </ThemedText>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
