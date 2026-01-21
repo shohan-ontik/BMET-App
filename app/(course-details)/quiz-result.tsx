@@ -3,7 +3,7 @@ import { ThemedText } from "@/components/ui/basics/themed-text";
 import { ThemedView } from "@/components/ui/basics/themed-view";
 import { quizResultTr, tQuizResult } from "@/i18n/quizResultLocal";
 import { language } from "@/redux/features/ui/uiSlice";
-import AntDesign from '@expo/vector-icons/AntDesign';
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View } from "react-native";
@@ -31,16 +31,16 @@ export default function QuizResult() {
     <ThemedView className="flex-1 items-center justify-center px-6">
       {/* Success Icon */}
       <View className="mb-6 h-20 w-20 items-center justify-center rounded-full bg-green-200">
-          <AntDesign name="check" size={24} color="green" />
+        <AntDesign name="check" size={24} color="green" />
       </View>
 
       {/* Title */}
-      <ThemedText className="mb-2 text-2xl font-semibold text-gray-800">
+      <ThemedText className="mb-2 text-[22px] font-semibold text-gray-800">
         {tQuizResult("quizResult").pass}
       </ThemedText>
 
       {/* Score */}
-      <ThemedText className="mb-12 text-base text-gray-500">
+      <ThemedText className="mb-12 text-[16px] text-gray-500">
         {tQuizResult("quizResult").score} {scoreValue}/{totalValue}
       </ThemedText>
 
@@ -50,7 +50,10 @@ export default function QuizResult() {
           onPress={handleBackToCourse}
           className="w-full rounded-xl bg-blue-600 py-4"
         >
-          <ThemedText type="medium" className="text-center text-[14px] text-white">
+          <ThemedText
+            type="medium"
+            className="text-center text-[14px] text-white"
+          >
             {tQuizResult("quizResult").backToCourse}
           </ThemedText>
         </ThemedButton>
@@ -62,7 +65,6 @@ export default function QuizResult() {
         >
           <ThemedText type="medium" className="text-center text-blue-600">
             {tQuizResult("quizResult").practiceAgain}
-            
           </ThemedText>
         </ThemedButton>
       </View>
