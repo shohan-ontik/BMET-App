@@ -62,6 +62,7 @@ export default function QuizResult() {
         >
           <ThemedText type="medium" className="text-center text-blue-600">
             {tQuizResult("quizResult").practiceAgain}
+            
           </ThemedText>
         </ThemedButton>
       </View>
