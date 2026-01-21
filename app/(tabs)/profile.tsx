@@ -10,9 +10,11 @@ import { useSession } from "@/hooks/useSession";
 import { profileTr, tProfile } from "@/i18n/profileLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import Feather from "@expo/vector-icons/Feather";
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { zodResolver } from "@hookform/resolvers/zod";
+import { router } from "expo-router";
 import { useForm } from "react-hook-form";
-import { Image, ScrollView, View } from "react-native";
+import { Image, ScrollView, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
 
@@ -70,32 +72,42 @@ export default function ProfileScreen() {
             <ThemedText type="subtitle" className="text-[20px] mb-1">
               Rahim Uddin
             </ThemedText>
-            <ThemedText className="text-gray-500 text-[14px] mb-3">
-              {appLanguage === "bn" ? "০১৭০০০০০০০০" : "01700000000"}
-            </ThemedText>
+            <View className="flex-row items-center mb-3">
+              <Ionicons name="call" size={24} color="black" />
+              <ThemedText className="text-gray-500 text-[14px] mb-3 ml-1">
+                {appLanguage === "bn" ? "০১৭০০০০০০০০" : "01700000000"}
+                </ThemedText>
+            </View>
 
             {/* Student Badge */}
-            <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
-              <ThemedText className="text-indigo-700 text-[12px] font-NotoSansMedium">
-                {tProfile("student")}
-              </ThemedText>
-            </View>
+            <TouchableOpacity
+              onPress={() =>
+                router.push({
+                  pathname: "/(course-details)/quiz-result",
+                  params: { score: "3", total: "3" },
+                })
+              }
+              activeOpacity={0.7}
+            >
+              <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
+                <ThemedText type="link" className="text-indigo-700 text-[12px]">
+                  {tProfile("student")}
+                </ThemedText>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
-
+        
+        {/* Security Header */}
+        <View className="flex-row items-center mb-2 px-5">
+          <Feather name="lock" size={18} color="#374151" />
+          <ThemedText type="defaultSemiBold" className="ml-2">
+            {tProfile("security")}
+          </ThemedText>
+        </View>
         {/* Security Section */}
         <View className="px-5 pb-6">
           <View className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-            {/* Security Header */}
-            <View className="flex-row items-center mb-5">
-              <View className="bg-gray-100 p-2 rounded-full mr-2">
-                <Feather name="lock" size={18} color="#374151" />
-              </View>
-              <ThemedText type="defaultSemiBold" className="text-[16px]">
-                {tProfile("security")}
-              </ThemedText>
-            </View>
-
             {/* New PIN Input */}
             <FormInput
               control={control}
@@ -132,7 +144,7 @@ export default function ProfileScreen() {
               onPress={handleSubmit(onSubmit)}
               className="mb-3 w-full justify-center bg-indigo-400"
             >
-              <ThemedText className="text-white font-NotoSansMedium">
+              <ThemedText type="medium" className="text-white">
                 {tProfile("updatePin")}
               </ThemedText>
             </ThemedButton>
@@ -148,7 +160,7 @@ export default function ProfileScreen() {
           >
             <View className="flex-row items-center justify-center">
               <Feather name="log-out" size={18} color="#ffffffff" />
-              <ThemedText className="text-white font-NotoSansMedium ml-2">
+              <ThemedText type="medium" className="text-white ml-2">
                 {tProfile("logout")}
               </ThemedText>
             </View>
