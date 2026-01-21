@@ -48,6 +48,7 @@ export default function HomeScreen() {
           <ThemedText className="text-gray-600">
             {getGreetingByTime()}
           </ThemedText>
+
           <ThemedText type="title" className="text-[28px]">
             রহিম উদ্দিন
           </ThemedText>

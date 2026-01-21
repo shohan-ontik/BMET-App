@@ -9,7 +9,7 @@ export default function Layout() {
       }}
     >
       <Stack.Screen name="index" />
-      <Stack.Screen name="lesson-player" />
+      <Stack.Screen name="flashCardsScreen" options={{ animation: "fade" }} />
     </Stack>
   );
 }

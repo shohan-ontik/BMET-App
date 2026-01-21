@@ -4,11 +4,14 @@ import { courseTr, tCourse } from "@/i18n/courseLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import { formatNumber } from "@/utils/conversions";
 import FeatherIcons from "@expo/vector-icons/Feather";
+import { router } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 import { useSelector } from "react-redux";
 
-export default function StartFlashCard() {
+export default function StartFlashCard({
+  onClose,
+}: Readonly<{ onClose: () => void }>) {
   const appLanguage = useSelector(language);
   courseTr.locale = appLanguage;
 
@@ -40,7 +43,13 @@ export default function StartFlashCard() {
             </ThemedText>
           </View>
         </View>
-        <ThemedButton className="bg-blue-600">
+        <ThemedButton
+          className="bg-blue-600"
+          onPress={() => {
+            onClose();
+            router.push("/(course-details)/flashCardsScreen");
+          }}
+        >
           <View className="flex-row items-center gap-2">
             <ThemedText type="defaultSemiBold" className="text-white">
               {tCourse("startFlashcard")}

@@ -1,6 +1,5 @@
 import ThemedButton from "@/components/ui/basics/themed-button";
 import { ThemedText } from "@/components/ui/basics/themed-text";
-import { ThemedView } from "@/components/ui/basics/themed-view";
 import { quizResultTr, tQuizResult } from "@/i18n/quizResultLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -9,7 +8,11 @@ import React from "react";
 import { View } from "react-native";
 import { useSelector } from "react-redux";
 
-export default function QuizResult() {
+export default function QuizResultScreen({
+  handlePracticeAgain,
+}: Readonly<{
+  handlePracticeAgain: () => void;
+}>) {
   const { score, total } = useLocalSearchParams();
   const appLanguage = useSelector(language);
   quizResultTr.locale = appLanguage;
@@ -22,13 +25,8 @@ export default function QuizResult() {
     router.back();
   };
 
-  const handlePracticeAgain = () => {
-    router.back();
-    // You can add additional logic here to reset the quiz
-  };
-
   return (
-    <ThemedView className="flex-1 items-center justify-center px-6">
+    <View className="flex-1 items-center justify-center px-6">
       {/* Success Icon */}
       <View className="mb-6 h-20 w-20 items-center justify-center rounded-full bg-green-200">
         <AntDesign name="check" size={24} color="green" />
@@ -68,6 +66,6 @@ export default function QuizResult() {
           </ThemedText>
         </ThemedButton>
       </View>
-    </ThemedView>
+    </View>
   );
 }
