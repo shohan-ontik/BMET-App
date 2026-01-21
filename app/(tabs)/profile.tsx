@@ -10,11 +10,10 @@ import { useSession } from "@/hooks/useSession";
 import { profileTr, tProfile } from "@/i18n/profileLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import Feather from "@expo/vector-icons/Feather";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { router } from "expo-router";
 import { useForm } from "react-hook-form";
-import { Image, ScrollView, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
 
@@ -76,28 +75,17 @@ export default function ProfileScreen() {
               <Ionicons name="call" size={24} color="black" />
               <ThemedText className="text-gray-500 text-[14px] mb-3 ml-1">
                 {appLanguage === "bn" ? "০১৭০০০০০০০০" : "01700000000"}
-                </ThemedText>
+              </ThemedText>
             </View>
 
-            {/* Student Badge */}
-            <TouchableOpacity
-              onPress={() =>
-                router.push({
-                  pathname: "/(course-details)/quiz-result",
-                  params: { score: "3", total: "3" },
-                })
-              }
-              activeOpacity={0.7}
-            >
-              <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
-                <ThemedText type="link" className="text-indigo-700 text-[12px]">
-                  {tProfile("student")}
-                </ThemedText>
-              </View>
-            </TouchableOpacity>
+            <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
+              <ThemedText type="link" className="text-indigo-700 text-[12px]">
+                {tProfile("student")}
+              </ThemedText>
+            </View>
           </View>
         </View>
-        
+
         {/* Security Header */}
         <View className="flex-row items-center mb-2 px-5">
           <Feather name="lock" size={18} color="#374151" />

@@ -1,15 +1,10 @@
 import { useRef, useState } from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import FlipCard, {
   FlipCardRef,
 } from "@/components/screens/courses/flash-cards/AnimatedCard";
+import QuizResultScreen from "@/components/screens/courses/flash-cards/QuizResultScreen";
 import { ThemedText } from "@/components/ui/basics/themed-text";
 import ProgressBar from "@/components/ui/common/progress-bar";
 import { courseTr, tCourse } from "@/i18n/courseLocal";
@@ -66,7 +61,7 @@ export default function FlashCardsScreen2() {
       </View>
 
       {index >= CARDS.length ? (
-        <Text>No more cards 🎉</Text>
+        <QuizResultScreen handlePracticeAgain={() => setIndex(0)} />
       ) : (
         <View className="flex-1 items-center justify-center">
           {CARDS[index + 1] && (
