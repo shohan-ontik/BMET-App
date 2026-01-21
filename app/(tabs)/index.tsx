@@ -5,7 +5,8 @@ import { ThemedView } from "@/components/ui/basics/themed-view";
 import { homeTr, tHome } from "@/i18n/homeLocal";
 import { language } from "@/redux/features/ui/uiSlice";
 import { getGreetingByTime } from "@/utils/helpers";
-import { ScrollView, View } from "react-native";
+import { router } from "expo-router";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
 
@@ -48,9 +49,13 @@ export default function HomeScreen() {
           <ThemedText className="text-gray-600">
             {getGreetingByTime()}
           </ThemedText>
-          <ThemedText type="title" className="text-[28px]">
-            রহিম উদ্দিন
-          </ThemedText>
+          <TouchableOpacity
+            onPress={() => router.push("/(course-details)/flashCardsScreen2")}
+          >
+            <ThemedText type="title" className="text-[28px]">
+              রহিম উদ্দিন
+            </ThemedText>
+          </TouchableOpacity>
         </View>
         <LearningStats />
         <View className="py-4 mt-4">

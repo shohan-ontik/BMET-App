@@ -12,6 +12,13 @@ export type CourseTranslation = {
   startLesson1: string;
   startLesson2: string;
   startFlashcard: string;
+  flashcard: string;
+  iWantTo: string;
+  bangla: string;
+  english: string;
+  skip: string;
+  gotIt: string;
+  tapToFlip: string;
 };
 
 const courseEn: CourseTranslation = {
@@ -26,6 +33,13 @@ const courseEn: CourseTranslation = {
   startLesson1: "Master",
   startLesson2: " new words from this lesson.",
   startFlashcard: "Start Flashcards",
+  flashcard: "Flash Cards",
+  iWantTo: "I want to practice",
+  bangla: "Bangla",
+  english: "English",
+  skip: "Skip",
+  gotIt: "Got It",
+  tapToFlip: "Tap to flip the card",
 };
 
 const courseBn: CourseTranslation = {
@@ -40,6 +54,13 @@ const courseBn: CourseTranslation = {
   startLesson1: "এই লেসন থেকে",
   startLesson2: "টি নতুন শব্দ আয়ত্ত করুন।",
   startFlashcard: "ফ্ল্যাশকার্ড শুরু করুন",
+  flashcard: "ফ্ল্যাশকার্ড",
+  iWantTo: "আমি অনুশীলন করতে চাই",
+  bangla: "বাংলা",
+  english: "ইংরেজি",
+  skip: "বাদ দিন",
+  gotIt: "ঠিক আছে",
+  tapToFlip: "কার্ড উল্টাতে ট্যাপ করুন",
 };
 
 export const courseTr = new I18n({

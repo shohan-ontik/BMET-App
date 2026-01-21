@@ -104,8 +104,6 @@ const ThemedButton: React.FC<ThemedButtonProps> = ({
   const buttonClasses = getButtonClasses(variant, size, disabled, className);
   const textClasses = getTextClasses(variant, size, disabled);
 
-  console.log(buttonClasses);
-
   return (
     <TouchableOpacity
       className={cn(buttonClasses, className)}

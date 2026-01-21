@@ -68,14 +68,13 @@ export default function LessonPlayer() {
         duration={duration}
         isSheetOpen={isSheetOpen}
       />
-
       <CommonSheet
         bottomSheetRef={bottomsheetRef}
         snapPoints={["55%"]}
         index={1}
         onChange={(index) => setIsSheetOpen(index !== -1)}
       >
-        <StartFlashCard />
+        <StartFlashCard onClose={() => bottomsheetRef?.current?.close()} />
       </CommonSheet>
     </ThemedView>
   );
