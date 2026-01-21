@@ -50,7 +50,7 @@ export default function QuizResult() {
           onPress={handleBackToCourse}
           className="w-full rounded-xl bg-blue-600 py-4"
         >
-          <ThemedText className="text-center text-base font-semibold text-white">
+          <ThemedText type="medium" className="text-center text-[14px] text-white">
             {tQuizResult("quizResult").backToCourse}
           </ThemedText>
         </ThemedButton>
@@ -60,7 +60,7 @@ export default function QuizResult() {
           variant="ghost"
           className="w-full py-4"
         >
-          <ThemedText className="text-center text-base font-medium text-blue-600">
+          <ThemedText type="medium" className="text-center text-blue-600">
             {tQuizResult("quizResult").practiceAgain}
           </ThemedText>
         </ThemedButton>

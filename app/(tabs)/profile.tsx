@@ -86,7 +86,7 @@ export default function ProfileScreen() {
               activeOpacity={0.7}
             >
               <View className="bg-indigo-50 px-4 py-1.5 rounded-full">
-                <ThemedText className="text-indigo-700 text-[12px] font-NotoSansMedium">
+                <ThemedText type="link" className="text-indigo-700 text-[12px]">
                   {tProfile("student")}
                 </ThemedText>
               </View>
@@ -102,7 +102,7 @@ export default function ProfileScreen() {
               <View className="bg-gray-100 p-2 rounded-full mr-2">
                 <Feather name="lock" size={18} color="#374151" />
               </View>
-              <ThemedText type="defaultSemiBold" className="text-[16px]">
+              <ThemedText type="defaultSemiBold">
                 {tProfile("security")}
               </ThemedText>
             </View>
@@ -143,7 +143,7 @@ export default function ProfileScreen() {
               onPress={handleSubmit(onSubmit)}
               className="mb-3 w-full justify-center bg-indigo-400"
             >
-              <ThemedText className="text-white font-NotoSansMedium">
+              <ThemedText type="medium" className="text-white">
                 {tProfile("updatePin")}
               </ThemedText>
             </ThemedButton>
@@ -159,7 +159,7 @@ export default function ProfileScreen() {
           >
             <View className="flex-row items-center justify-center">
               <Feather name="log-out" size={18} color="#ffffffff" />
-              <ThemedText className="text-white font-NotoSansMedium ml-2">
+              <ThemedText type="medium" className="text-white ml-2">
                 {tProfile("logout")}
               </ThemedText>
             </View>
